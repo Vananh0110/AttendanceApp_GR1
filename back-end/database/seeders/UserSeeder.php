@@ -16,21 +16,28 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
-            'password' => bcrypt('admin123'),
+            'password' => bcrypt('123456'),
             'role_id' => 1,
         ]);
 
         User::create([
             'name' => 'Trịnh Tuấn Đạt',
             'email' => 'dattt@hust.edu.vn',
-            'password' => bcrypt('teacherrole'),
+            'password' => bcrypt('123456'),
             'role_id' => 2,
         ]);
 
         User::create([
             'name' => 'Vũ Thị Hương Giang',
             'email' => 'giangvth@hust.edu.vn',
-            'password' => bcrypt('teacherrole'),
+            'password' => bcrypt('123456'),
+            'role_id' => 2,
+        ]);
+
+        User::create([
+            'name' => 'Nguyễn Mạnh Tuấn',
+            'email' => 'tuannm@hust.edu.vn',
+            'password' => bcrypt('123456'),
             'role_id' => 2,
         ]);
 

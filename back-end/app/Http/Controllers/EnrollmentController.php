@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Enrollment;
+use Illuminate\Support\Facades\DB;
 
 class EnrollmentController extends Controller
 {
@@ -37,5 +38,19 @@ class EnrollmentController extends Controller
         $enrollment = Enrollment::findOrFail($id);
         $enrollment->delete();
         return response()->json(null, 204);
+    }
+
+    public function getStudentListByClazzCode($clazzCode)
+    {
+        $students = DB::select('
+            SELECT s.student_name, s.student_code
+            FROM students s
+            JOIN enrollments e ON s.id = e.student_id
+            JOIN clazzes c ON e.clazz_id = c.id
+            WHERE c.clazz_code = ?
+            ORDER BY s.student_code
+        ', [$clazzCode]);
+
+        return response()->json($students);
     }
 }

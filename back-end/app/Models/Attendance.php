@@ -18,6 +18,10 @@ class Attendance extends Model
         'face_image',
         'attendance_date',
         'attendance_time',
+        'student_name',
+        'student_code',
+        'clazz_code',
+        'status'
     ];
 
     public function clazz()

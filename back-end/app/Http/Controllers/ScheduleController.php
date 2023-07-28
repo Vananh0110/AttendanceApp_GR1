@@ -44,7 +44,7 @@ class ScheduleController extends Controller
     {
         // Sử dụng câu truy vấn PostgreSQL với DISTINCT
         $schedules = DB::select('
-            SELECT DISTINCT cr.course_name, c.clazz_code, s.day_of_week, s.start_time, s.end_time, cr.course_name, s.destination
+            SELECT DISTINCT cr.course_name, cr.course_code, c.clazz_code, s.day_of_week, s.start_time, s.end_time, cr.course_name, s.destination
             FROM schedules s
             JOIN clazzes c ON s.clazz_id = c.id
             JOIN teachers t ON c.teacher_id = t.id
@@ -60,7 +60,7 @@ class ScheduleController extends Controller
     {
         // Sử dụng câu truy vấn PostgreSQL với DISTINCT
         $schedules = DB::select('
-            SELECT cr.course_name, c.clazz_code, s.start_time, s.end_time, s.destination, s.clazz_date
+            SELECT cr.course_name, cr.course_code, c.clazz_code, s.start_time, s.end_time, s.destination, s.clazz_date
             FROM schedules s
             JOIN clazzes c ON s.clazz_id = c.id
             JOIN teachers t ON c.teacher_id = t.id

@@ -19,6 +19,10 @@ return new class extends Migration
             $table->json('face_image');
             $table->date('attendance_date');
             $table->time('attendance_time');
+            $table->string('student_name');
+            $table->string('student_code');
+            $table->string('clazz_code');
+            $table->string('status');
             $table->foreign('clazz_id')->references('id')->on('clazzes');
             $table->foreign('student_id')->references('id')->on('students');
             $table->foreign('teacher_id')->references('id')->on('teachers');

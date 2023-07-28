@@ -29,6 +29,7 @@ Route::apiResource('teachers', TeacherController::class);
 Route::apiResource('students', StudentController::class);
 Route::apiResource('clazzes', ClazzController::class);
 Route::apiResource('enrollments', EnrollmentController::class);
+Route::get('/getStudentListByClazzCode/{clazzCode}', [EnrollmentController::class, 'getStudentListByClazzCode']);
 Route::apiResource('schedules', ScheduleController::class);
 Route::apiResource('attendances', AttendanceController::class);
 Route::apiResource('roles', RoleController::class);

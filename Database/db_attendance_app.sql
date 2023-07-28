@@ -90,7 +90,6 @@ VALUES ('Vũ Thành An', '20205197', 'an.vt204197@sis.hust.edu.vn', '2002-07-05'
        ('Nguyễn Đức Kim', '20204995', 'kim.nd204995@sis.hust.edu.vn', '2002-04-04', 'Nam'),
        ('Phạm Hùng Lâm', '20204997', 'lam.ph204997@sis.hust.edu.vn', '2002-05-23', 'Nam'),
        ('Đỗ Văn Lâm', '20204998', 'lam.dv204998@sis.hust.edu.vn', '2002-11-07', 'Nam'),
-       ('Đỗ Văn Lâm', '20204998', 'lam.dv204998@sis.hust.edu.vn', '2002-11-07', 'Nam'),
        ('Phạm Văn Lâm', '20204999', 'lam.pv204999@sis.hust.edu.vn', '2002-10-15', 'Nam'),
        ('Trần Văn Lâm', '20205000', 'lam.tv205000@sis.hust.edu.vn', '2002-02-22', 'Nam'),
        ('Nguyễn Việt Long', '20205001', 'long.nv205001@sis.hust.edu.vn', '2002-12-03', 'Nam'),
