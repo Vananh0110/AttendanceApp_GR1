@@ -25,10 +25,10 @@ class Student extends Model
         return $this->belongsToMany(Clazz::class);
     }
 
-    public function attendances()
-    {
-        return $this->hasMany(Attendance::class);
-    }
+    // public function attendances()
+    // {
+    //     return $this->hasMany(Attendance::class);
+    // }
 
     public function enrollments()
     {

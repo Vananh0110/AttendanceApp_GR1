@@ -42,8 +42,8 @@ class Clazz extends Model
         return $this->hasMany(Schedule::class);
     }
 
-    public function attendances()
-    {
-        return $this->hasMany(Attendance::class);
-    }
+    // public function attendances()
+    // {
+    //     return $this->hasMany(Attendance::class);
+    // }
 }

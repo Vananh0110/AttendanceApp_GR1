@@ -12,30 +12,29 @@ class Attendance extends Model
     protected $table = 'attendance';
 
     protected $fillable = [
-        'clazz_id',
-        'student_id',
-        'teacher_id',
         'face_image',
         'attendance_date',
         'attendance_time',
         'student_name',
         'student_code',
         'clazz_code',
+        'teacher_name',
+        'teacher_email',
         'status'
     ];
 
-    public function clazz()
-    {
-        return $this->belongsTo(Clazz::class);
-    }
+    // public function clazz()
+    // {
+    //     return $this->belongsTo(Clazz::class);
+    // }
 
-    public function student()
-    {
-        return $this->belongsTo(Student::class);
-    }
+    // public function student()
+    // {
+    //     return $this->belongsTo(Student::class);
+    // }
 
-    public function teacher()
-    {
-        return $this->belongsTo(Teacher::class);
-    }
+    // public function teacher()
+    // {
+    //     return $this->belongsTo(Teacher::class);
+    // }
 }

@@ -71,4 +71,48 @@ class ScheduleController extends Controller
 
         return response()->json($schedules);
     }
+
+    public function getSchedulesByStudentEmail(Request $request, $userEmail){
+        $schedules = DB::select('
+        SELECT DISTINCT s.day_of_week, cr.course_name, cr.course_code, t.teacher_name,
+        s.start_time, s.end_time, c.clazz_code, s.destination
+        FROM schedules s
+        JOIN clazzes c ON s.clazz_id = c.id
+        JOIN enrollments e ON c.id = e.clazz_id
+        JOIN students st ON e.student_id = st.id
+        JOIN teachers t ON c.teacher_id = t.id
+        JOIN courses cr ON c.course_id = cr.id
+        WHERE st.student_email = ?
+        ORDER BY s.day_of_week, s.start_time
+        ', [$userEmail]);
+
+        return response()->json($schedules);
+    }
+    public function getSchedulesByStudentEmailAndDate(Request $request, $userEmail, $date){
+        $schedules = DB::select('
+        SELECT s.day_of_week, cr.course_name, cr.course_code, t.teacher_name,
+        s.start_time, s.end_time, c.clazz_code, s.destination, s.clazz_date
+        FROM schedules s
+        JOIN clazzes c ON s.clazz_id = c.id
+        JOIN enrollments e ON c.id = e.clazz_id
+        JOIN students st ON e.student_id = st.id
+        JOIN teachers t ON c.teacher_id = t.id
+        JOIN courses cr ON c.course_id = cr.id
+        WHERE st.student_email = ? AND s.clazz_date = ?
+        ORDER BY s.day_of_week, s.start_time
+        ', [$userEmail, $date]);
+
+        return response()->json($schedules);
+    }
+
+    public function getScheduleByClazzId(Request $request, $clazzId){
+        $schedule = DB::select(
+            'SELECT *
+            FROM schedules
+            WHERE clazz_id = ?
+            ORDER BY clazz_date
+            ', [$clazzId]);
+
+        return response()->json($schedule);
+    }
 }

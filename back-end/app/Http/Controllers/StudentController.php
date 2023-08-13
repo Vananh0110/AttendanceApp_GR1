@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -37,5 +38,15 @@ class StudentController extends Controller
         $student = Student::findOrFail($id);
         $student->delete();
         return response()->json(null, 204);
+    }
+
+    public function getStudentByCode(Request $request, $student_code){
+        $student = DB::select('
+            SELECT student_name, student_code, student_email, gender, date_of_birth
+            FROM students
+            WHERE student_code = ?
+        ', [$student_code]);
+
+        return response()->json($student);
     }
 }

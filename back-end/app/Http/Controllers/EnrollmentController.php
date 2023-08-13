@@ -43,12 +43,12 @@ class EnrollmentController extends Controller
     public function getStudentListByClazzCode($clazzCode)
     {
         $students = DB::select('
-            SELECT s.student_name, s.student_code
+            SELECT s.student_name, s.student_code, s.student_email, s.gender, s.date_of_birth
             FROM students s
             JOIN enrollments e ON s.id = e.student_id
             JOIN clazzes c ON e.clazz_id = c.id
             WHERE c.clazz_code = ?
-            ORDER BY s.student_code
+            ORDER BY s.student_name
         ', [$clazzCode]);
 
         return response()->json($students);

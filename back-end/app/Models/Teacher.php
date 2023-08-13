@@ -22,8 +22,8 @@ class Teacher extends Model
         return $this->hasMany(Clazz::class);
     }
 
-    public function attendances()
-    {
-        return $this->hasMany(Attendance::class);
-    }
+    // public function attendances()
+    // {
+    //     return $this->hasMany(Attendance::class);
+    // }
 }
